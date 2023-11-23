@@ -1,20 +1,16 @@
+""" Listens to audio from microphone for an animal and prints out the animal's sound in response"""
 import speech_recognition as sr
-from pymongo import MongoClient
-import pyaudio as pa
-
-# MongoDB connection
-"""client = MongoClient('')
-db = client['']
-collection = db['']"""
 
 recognizer = sr.Recognizer()
 
+"""Captures audio from microphone"""
 def capture_voice_input():
     with sr.Microphone() as source:
         print("Listening...")
         audio = recognizer.listen(source)
     return audio
 
+"""Converts audio to string"""
 def convert_voice_to_text(audio):
     try:
         text = recognizer.recognize_google(audio)
@@ -27,6 +23,7 @@ def convert_voice_to_text(audio):
         print("Error; {0}".format(e))
     return text
 
+"""Proccesses string to animal sound response"""
 def process_voice_command(text):
     if "human" in text.lower():
         print("hi")
@@ -49,6 +46,7 @@ def process_voice_command(text):
         print("I didn't understand that command. Please try again.")
     return False
 
+"""main script function"""
 def main():
     end_program = False
     while not end_program:
