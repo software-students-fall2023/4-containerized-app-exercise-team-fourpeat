@@ -11,10 +11,6 @@ pymongo = "*"
 speechrecognition = "*"
 
 [dev-packages]
-pylint = "*"
-black = "*"
-pyaudio = "*"
-pymongo = "*"
-speechrecognition = "*"
+
 
 [requires]
