@@ -37,7 +37,7 @@ jobs:
           pipenv install requests
           pipenv install gitcommitlogger
           pipenv install SpeechRecognition
-          sudo apt-get install portaudio19-dev
+          sudo apt install portaudio19-dev python-pyaudio
           pip install pyaudio
           pipenv install
       - name: Log pull request opened
