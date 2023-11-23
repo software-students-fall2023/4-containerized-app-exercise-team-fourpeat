@@ -32,7 +32,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade pipenv
           sudo apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0
-          sudo apt-get install ffmpeg libav-tools
+          sudo apt-get install ffmpeg 
           pipenv install pyaudio
           pipenv install pytz
           pipenv install python-dateutil
