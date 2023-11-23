@@ -3,12 +3,14 @@ import speech_recognition as sr
 
 recognizer = sr.Recognizer()
 
+
 def capture_voice_input():
     """Captures audio from microphone"""
     with sr.Microphone() as source:
         print("Listening...")
         audio = recognizer.listen(source)
     return audio
+
 
 def convert_voice_to_text(audio):
     """Converts audio to string"""
@@ -22,6 +24,7 @@ def convert_voice_to_text(audio):
         text = ""
         print(f"Error: {e}")
     return text
+
 
 def process_voice_command(text):
     """Proccesses string to animal sound response"""
@@ -46,6 +49,7 @@ def process_voice_command(text):
         print("I didn't understand that command. Please try again.")
     return False
 
+
 def main():
     """main script function"""
     end_program = False
@@ -53,6 +57,7 @@ def main():
         audio = capture_voice_input()
         text = convert_voice_to_text(audio)
         end_program = process_voice_command(text)
+
 
 if __name__ == "__main__":
     main()
