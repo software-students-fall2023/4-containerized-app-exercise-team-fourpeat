@@ -17,6 +17,8 @@ jobs:
           python -m pip install pipenv
           pipenv sync --dev --python $(which python)
           pipenv shell --fancy --python $(which python)
+          pipenv install SpeechRecognition
+          pipenv install pyaudio
       - name: Lint with pylint
         if: ${{ hashFiles('**/*.py') != '' }}
         run: |
