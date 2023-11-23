@@ -20,7 +20,7 @@ def convert_voice_to_text(audio):
         print("Sorry, I didn't understand that.")
     except sr.RequestError as e:
         text = ""
-        print("Error; {0}".format(e))
+        print(f"Error: {e}")
     return text
 
 def process_voice_command(text):
