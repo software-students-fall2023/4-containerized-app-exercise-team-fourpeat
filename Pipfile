@@ -8,9 +8,8 @@ pylint = "*"
 black = "*"
 pyaudio = "*"
 pymongo = "*"
-speech_recognition = "*"
+speechrecognition = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
