@@ -20,7 +20,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade pipenv
           pipenv install --dev
-          pipenv run pip install --upgrade --editable .
+          pipenv sync
       - name: Lint with pylint
         if: ${{ hashFiles('**/*.py') != '' }}
         run: |
