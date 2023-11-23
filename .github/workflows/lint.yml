@@ -12,8 +12,8 @@ jobs:
           python-version: "3.9"
       - name: Install PortAudio
         run: |
-        sudo apt-get update
-        sudo apt-get install -y portaudio19-dev
+          sudo apt-get update
+          sudo apt-get install -y portaudio19-dev
       - name: Install dependencies
         if: ${{ hashFiles('**/*.py') != '' }}
         run: |
