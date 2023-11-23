@@ -3,15 +3,15 @@ import speech_recognition as sr
 
 recognizer = sr.Recognizer()
 
-"""Captures audio from microphone"""
 def capture_voice_input():
+    """Captures audio from microphone"""
     with sr.Microphone() as source:
         print("Listening...")
         audio = recognizer.listen(source)
     return audio
 
-"""Converts audio to string"""
 def convert_voice_to_text(audio):
+    """Converts audio to string"""
     try:
         text = recognizer.recognize_google(audio)
         print("You said: " + text)
@@ -23,8 +23,8 @@ def convert_voice_to_text(audio):
         print("Error; {0}".format(e))
     return text
 
-"""Proccesses string to animal sound response"""
 def process_voice_command(text):
+    """Proccesses string to animal sound response"""
     if "human" in text.lower():
         print("hi")
     elif "cat" in text.lower():
@@ -46,8 +46,8 @@ def process_voice_command(text):
         print("I didn't understand that command. Please try again.")
     return False
 
-"""main script function"""
 def main():
+    """main script function"""
     end_program = False
     while not end_program:
         audio = capture_voice_input()
