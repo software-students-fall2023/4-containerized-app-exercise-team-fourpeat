@@ -12,5 +12,4 @@ speechrecognition = "*"
 
 [dev-packages]
 
-
 [requires]
