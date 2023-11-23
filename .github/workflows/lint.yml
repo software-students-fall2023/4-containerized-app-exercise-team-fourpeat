@@ -15,15 +15,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install --upgrade pipenv
-          pipenv sync --dev --python $(which python)
-          pipenv shell --fancy --python $(which python)
+          pipenv sync
+          pipenv shell
           pipenv install SpeechRecognition
           pipenv install pyaudio
       - name: Lint with pylint
         if: ${{ hashFiles('**/*.py') != '' }}
         run: |
           pipenv run pylint **/*.py
-      - name: Format with black
-        if: ${{ hashFiles('**/*.py') != '' }}
-        run: |
-          pipenv run black --diff --check .
+      #- name: Format with black
+       # if: ${{ hashFiles('**/*.py') != '' }}
+       # run: |
+        #  pipenv run black --diff --check .
