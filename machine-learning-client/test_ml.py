@@ -1,4 +1,4 @@
-"""Module providing a function printing python version."""
+"""Unit tests of functions in ml.py"""
 from unittest.mock import Mock, MagicMock, patch
 import speech_recognition as sr
 import pytest
@@ -13,10 +13,10 @@ recognizer = sr.Recognizer()
 
 
 def test_capture_voice_input_timeout():
-    """Mocking the listen function to simulate a WaitTimeoutError"""
+    """Test of timeout in voice input capture"""
 
     def listen_mock(*args, **kwargs):
-        """Simulating Wait time out Error"""
+        """Simulating wait timeout error"""
         raise sr.WaitTimeoutError()
 
     with patch.object(sr.Recognizer, "listen", side_effect=listen_mock):
@@ -25,7 +25,7 @@ def test_capture_voice_input_timeout():
 
 
 def test_capture_voice_input():
-    """Test with mock voice input capture"""
+    """Test to mock voice input capture"""
 
     mock_audio_data = sr.AudioData(b"fake_audio_data", 16000, 2)
 
