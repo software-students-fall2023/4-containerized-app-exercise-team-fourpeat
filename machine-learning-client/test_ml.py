@@ -80,5 +80,11 @@ def test_process_voice_command_snake():
     assert result is False
 
 
+def test_process_voice_command_goodbye():
+    """Test with recognized command of goodbye"""
+    result = process_voice_command("goodbye")
+    assert result is True
+
+
 if __name__ == "__main__":
     pytest.main()
