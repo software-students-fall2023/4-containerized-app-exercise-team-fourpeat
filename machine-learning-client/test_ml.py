@@ -56,5 +56,11 @@ def test_process_voice_command_dog():
     assert result is False
 
 
+def test_process_voice_command_cow():
+    """Test with recognized command of cow"""
+    result = process_voice_command("cow")
+    assert result is False
+
+
 if __name__ == "__main__":
     pytest.main()
