@@ -1,10 +1,11 @@
 """Module providing a function printing python version."""
-from unittest.mock import MagicMock, patch
+from unittest.mock import Mock, MagicMock, patch
 import speech_recognition as sr
 import pytest
 
 from ml import (
     capture_voice_input,
+    convert_voice_to_text,
     process_voice_command,
 )
 
@@ -36,6 +37,43 @@ def test_capture_voice_input():
         result = capture_voice_input()
 
         assert isinstance(result, type(mock_audio_data))
+
+
+def test_convert_voice_to_text():
+    """Test to convert recognized voice to text"""
+    mock_audio = Mock()
+    mock_audio.text = "Recognized text"
+
+    with patch.object(
+        sr.Recognizer, "recognize_google", return_value="Recognized text"
+    ):
+        result = convert_voice_to_text(mock_audio)
+
+        assert result == "Recognized text"
+
+
+def test_convert_voice_to_text_unknown_value_error():
+    """Test to convert voice to text with unknown value error"""
+    mock_audio = Mock()
+
+    with patch.object(sr.Recognizer, "recognize_google") as recognize_google_mock:
+        recognize_google_mock.side_effect = sr.UnknownValueError("UnknownValueError")
+
+        result = convert_voice_to_text(mock_audio)
+
+        assert result == ""
+
+
+def test_convert_voice_to_text_request_error():
+    """Test to convert voice to text with request error"""
+    mock_audio = Mock()
+
+    with patch.object(sr.Recognizer, "recognize_google") as recognize_google_mock:
+        recognize_google_mock.side_effect = sr.RequestError("RequestError")
+
+        result = convert_voice_to_text(mock_audio)
+
+        assert result == ""
 
 
 def test_process_voice_command_human():
