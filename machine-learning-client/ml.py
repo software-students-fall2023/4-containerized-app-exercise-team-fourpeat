@@ -4,11 +4,18 @@ import speech_recognition as sr
 recognizer = sr.Recognizer()
 
 
-def capture_voice_input():
-    """Captures audio from microphone"""
+def capture_voice_input(timeout=5):
+    """Captures audio from microphone with a specified timeout"""
     with sr.Microphone() as source:
         print("Listening...")
-        audio = recognizer.listen(source)
+        recognizer.adjust_for_ambient_noise(source)
+        try:
+            audio = recognizer.listen(source, timeout=timeout)
+            if not audio:
+                print("No audio detected. Please speak louder or try again.")
+        except sr.WaitTimeoutError:
+            print("Timeout occurred. No audio input received.")
+            audio = None
     return audio
 
 
