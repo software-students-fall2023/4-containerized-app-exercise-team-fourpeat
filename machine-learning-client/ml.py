@@ -7,14 +7,14 @@ def capture_voice_input(timeout=5):
     """Captures audio from microphone with a specified timeout"""
     with sr.Microphone() as source:
         print("Listening...")
-        recognizer.adjust_for_ambient_noise(source)  
+        recognizer.adjust_for_ambient_noise(source)
         try:
             audio = recognizer.listen(source, timeout=timeout)
-            if not audio:  
+            if not audio:
                 print("No audio detected. Please speak louder or try again.")
         except sr.WaitTimeoutError:
             print("Timeout occurred. No audio input received.")
-            audio = None  
+            audio = None
     return audio
 
 def convert_voice_to_text(audio):
@@ -29,7 +29,6 @@ def convert_voice_to_text(audio):
         text = ""
         print(f"Error: {e}")
     return text
-
 
 def process_voice_command(text):
     """Proccesses string to animal sound response"""
@@ -54,7 +53,6 @@ def process_voice_command(text):
         print("I didn't understand that command. Please try again.")
     return False
 
-
 def main():
     """main script function"""
     end_program = False
@@ -62,7 +60,6 @@ def main():
         audio = capture_voice_input()
         text = convert_voice_to_text(audio)
         end_program = process_voice_command(text)
-
 
 if __name__ == "__main__":
     main()
