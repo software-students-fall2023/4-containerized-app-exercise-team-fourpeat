@@ -1,6 +1,7 @@
+"""Module providing a function printing python version."""
+from unittest.mock import MagicMock, patch
 import speech_recognition as sr
 import pytest
-from unittest.mock import MagicMock, patch
 
 from ml import (
     capture_voice_input,
@@ -9,7 +10,7 @@ from ml import (
 
 recognizer = sr.Recognizer()
 
-
+"""Module providing a function printing python version."""
 def test_capture_voice_input_timeout():
     # Mocking the listen function to simulate a WaitTimeoutError
     def listen_mock(*args, **kwargs):
@@ -21,7 +22,7 @@ def test_capture_voice_input_timeout():
         result = capture_voice_input(timeout=0.01)
         assert result is None
 
-
+"""Module providing a function printing python version."""
 def test_capture_voice_input():
     # Create a mock AudioData object
     mock_audio_data = sr.AudioData(
@@ -41,7 +42,7 @@ def test_capture_voice_input():
         # Check that the result is an instance of AudioData
         assert isinstance(result, type(mock_audio_data))
 
-
+"""Module providing a function printing python version."""
 def test_process_voice_command_human():
     # Test with recognized animal
     result = process_voice_command("human")
