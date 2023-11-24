@@ -39,8 +39,14 @@ def test_capture_voice_input():
 
 
 def test_process_voice_command_human():
-    """Test with recognized command"""
+    """Test with recognized command of human"""
     result = process_voice_command("human")
+    assert result is False
+
+
+def test_process_voice_command_cat():
+    """Test with recognized command of cat"""
+    result = process_voice_command("cat")
     assert result is False
 
 
