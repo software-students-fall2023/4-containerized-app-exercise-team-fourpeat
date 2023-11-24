@@ -74,5 +74,11 @@ def test_process_voice_command_frog():
     assert result is False
 
 
+def test_process_voice_command_snake():
+    """Test with recognized command of snake"""
+    result = process_voice_command("snake")
+    assert result is False
+
+
 if __name__ == "__main__":
     pytest.main()
