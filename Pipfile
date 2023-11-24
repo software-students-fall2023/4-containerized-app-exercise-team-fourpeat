@@ -9,6 +9,8 @@ black = "*"
 pyaudio = "*"
 pymongo = "*"
 speechrecognition = "*"
+flask = "*"
+flask-pymongo = "*"
 
 [dev-packages]
 
