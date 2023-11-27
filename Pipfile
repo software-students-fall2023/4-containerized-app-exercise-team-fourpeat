@@ -11,6 +11,7 @@ pymongo = "*"
 speechrecognition = "*"
 coverage = "*"
 pytest = "*"
+flask = "*"
 
 [dev-packages]
 
