@@ -1,5 +1,6 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
 import speech_recognition as sr
+
 import animal_db
 
 recognizer = sr.Recognizer()
