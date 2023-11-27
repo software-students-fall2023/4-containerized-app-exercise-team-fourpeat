@@ -1,6 +1,8 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
 import speech_recognition as sr
 
+import animal_db
+
 recognizer = sr.Recognizer()
 
 
@@ -33,27 +35,34 @@ def convert_voice_to_text(audio):
     return text
 
 
+def save_to_database(animal, sound):
+    """Saves animal sound into the MongoDB database"""
+    data = {"animal": animal, "sound": sound}
+    animal_db.db.collection.insert_one(data)
+    print(f"Saved sound '{sound}' for {animal} in the database.")
+
+
 def process_voice_command(text):
     """Proccesses string to animal sound response"""
     if "human" in text.lower():
-        print("hi")
+        save_to_database("human", "hi")
     elif "cat" in text.lower():
-        print("meow")
+        save_to_database("cat", "meow")
     elif "dog" in text.lower():
-        print("woof")
+        save_to_database("dog", "woof")
     elif "cow" in text.lower():
-        print("moo")
+        save_to_database("cow", "moo")
     elif "bird" in text.lower():
-        print("chirp")
+        save_to_database("bird", "chirp")
     elif "frog" in text.lower():
-        print("ribbit")
+        save_to_database("frog", "rabbit")
     elif "snake" in text.lower():
-        print("hisss")
+        save_to_database("snake", "hisss")
     elif "goodbye" in text.lower():
-        print("Goodbye! Have a great day!")
+        save_to_database("machine learning client", "Goodbye!")
         return True
     else:
-        print("I didn't understand that command. Please try again.")
+        save_to_database("machine learning client", "I can't understand.")
     return False
 
 

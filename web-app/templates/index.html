@@ -1,0 +1,15 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Sounds</title>
+</head>
+<body>
+    <h1>Animal Sounds</h1>
+    <br>
+    <ul>
+        {% for animal in animals %}
+        <li>{{ animal.animal }} says "{{ animal.sound }}"</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
