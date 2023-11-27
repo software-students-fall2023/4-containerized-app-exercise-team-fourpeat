@@ -1,5 +1,6 @@
 """Web app"""
-from flask import Flask
+from flask import Flask, render_template
+import db
 
 app = Flask(__name__)
 
@@ -7,7 +8,8 @@ app = Flask(__name__)
 @app.route("/")
 def animals_db():
     """Return the main page"""
-    return "Hello, Flask!"
+    animals = db.db.collection.find({})
+    return render_template("index.html", animals=animals)
 
 
 if __name__ == "__main__":
