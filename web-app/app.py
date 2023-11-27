@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def index():
+def animals_db():
     """Return the main page"""
     return "Hello, Flask!"
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8000)
