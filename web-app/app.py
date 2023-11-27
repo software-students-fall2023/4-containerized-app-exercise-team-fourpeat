@@ -1,6 +1,10 @@
 """Web app"""
-from flask import Flask, render_template
+import sys
+
+sys.path.append("../")
 import db
+from flask import Flask, render_template
+
 
 app = Flask(__name__)
 

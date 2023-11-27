@@ -1,9 +1,10 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
-import speech_recognition as sr
 import sys
 
 sys.path.append("../")
-from web_app import db
+import db
+import speech_recognition as sr
+
 
 recognizer = sr.Recognizer()
 
