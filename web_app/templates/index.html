@@ -4,9 +4,6 @@
     <title>Animal Sounds</title>
     <style>
         /* Center the list */
-        h1{
-            padding-top: 20px;
-        }
         body {
             display: flex;
             justify-content: center;
@@ -28,6 +25,7 @@
 </head>
 <body>
     <h1>Animal Sounds</h1>
+    <br>
     <ul>
         {% for animal in animals %}
         <li>{{ animal.animal }} says "{{ animal.sound }}"</li>
