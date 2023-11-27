@@ -1,10 +1,6 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
-import sys
-
-sys.path.append("../")
-import db
 import speech_recognition as sr
-
+import animal_db
 
 recognizer = sr.Recognizer()
 
@@ -41,7 +37,7 @@ def convert_voice_to_text(audio):
 def save_to_database(animal, sound):
     """Saves animal sound into the MongoDB database"""
     data = {"animal": animal, "sound": sound}
-    db.db.collection.insert_one(data)
+    animal_db.db.collection.insert_one(data)
     print(f"Saved sound '{sound}' for {animal} in the database.")
 
 
