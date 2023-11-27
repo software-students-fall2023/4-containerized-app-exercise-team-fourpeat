@@ -12,6 +12,7 @@ speechrecognition = "*"
 coverage = "*"
 pytest = "*"
 flask = "*"
+flask-pymongo = "*"
 
 [dev-packages]
 
