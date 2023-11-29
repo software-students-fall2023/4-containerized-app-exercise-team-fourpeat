@@ -38,7 +38,7 @@ def save_to_database(animal, sound):
     data = {"animal": animal, "sound": sound}
     animal_db.db.collection.insert_one(data)
     print(f"Saved sound '{sound}' for {animal} in the database.")
-  
+
 
 def process_voice_command(text):
     """Proccesses string to animal sound response"""
