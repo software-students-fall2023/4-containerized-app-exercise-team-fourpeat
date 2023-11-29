@@ -8,6 +8,9 @@
 <body>
     <h1>Animal Sounds</h1>
     <br>
+    <button onclick="window.location.href='/run'">Click Me!</button>
+    Click the button to run a program that allows you to say an animal and will add the sound the animal makes to this page.
+    Say "Goodbye" to exit the program.
     <ul>
         {% for animal in animals %}
         <li>{{ animal.animal }} says "{{ animal.sound }}"</li>

@@ -1,10 +1,8 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
 import speech_recognition as sr
-
 import animal_db
 
 recognizer = sr.Recognizer()
-
 
 def capture_voice_input(timeout=5):
     """Captures audio from microphone with a specified timeout"""
@@ -40,7 +38,7 @@ def save_to_database(animal, sound):
     data = {"animal": animal, "sound": sound}
     animal_db.db.collection.insert_one(data)
     print(f"Saved sound '{sound}' for {animal} in the database.")
-
+  
 
 def process_voice_command(text):
     """Proccesses string to animal sound response"""
@@ -58,6 +56,8 @@ def process_voice_command(text):
         save_to_database("frog", "rabbit")
     elif "snake" in text.lower():
         save_to_database("snake", "hisss")
+    elif "pig" in text.lower():
+        save_to_database("pig", "oink")
     elif "goodbye" in text.lower():
         save_to_database("machine learning client", "Goodbye!")
         return True
