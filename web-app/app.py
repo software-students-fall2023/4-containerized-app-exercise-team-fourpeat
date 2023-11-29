@@ -14,13 +14,17 @@ def animals_db():
     animals = db.db.collection.find({})
     return render_template("index.html", animals=animals)
 
+
 path = os.path.join(os.path.dirname(os.path.dirname(__file__)))
-@app.route('/run')
+
+
+@app.route("/run")
 def run():
     """Executes ml.py script in machine-learning-client folder"""
-    run_path = os.path.join(path, 'machine-learning-client', 'ml.py')
-    subprocess.run(['python', run_path], check=False)
-    return redirect(url_for('animals_db'))
+    run_path = os.path.join(path, "machine-learning-client", "ml.py")
+    subprocess.run(["python", run_path], check=False)
+    return redirect(url_for("animals_db"))
+
 
 if __name__ == "__main__":
     app.run(port=8000)

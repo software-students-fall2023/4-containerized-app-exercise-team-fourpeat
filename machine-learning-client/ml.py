@@ -4,6 +4,7 @@ import animal_db
 
 recognizer = sr.Recognizer()
 
+
 def capture_voice_input(timeout=5):
     """Captures audio from microphone with a specified timeout"""
     with sr.Microphone() as source:
