@@ -1,6 +1,5 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
 import speech_recognition as sr
-
 import animal_db
 
 recognizer = sr.Recognizer()
@@ -58,6 +57,8 @@ def process_voice_command(text):
         save_to_database("frog", "rabbit")
     elif "snake" in text.lower():
         save_to_database("snake", "hisss")
+    elif "pig" in text.lower():
+        save_to_database("pig", "oink")
     elif "goodbye" in text.lower():
         save_to_database("machine learning client", "Goodbye!")
         return True
