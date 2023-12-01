@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: ./web-app/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb+srv://exz209:06bW5AA1Z2X9YeON@cluster0.apy9mup.mongodb.net/?retryWrites=true&w=majority
+
+  # mlclient:
+  #   build:
+  #     context: .
+  #     dockerfile: ./machine-learning-client/Dockerfile
+  #   devices:
+  #     - "/dev/snd:/dev/snd"
+    ## ports:
+    ##   - "5001:5000"
+  #   environment:
+  #     - MONGO_URI=mongodb+srv://exz209:06bW5AA1Z2X9YeON@cluster0.apy9mup.mongodb.net/?retryWrites=true&w=majority
