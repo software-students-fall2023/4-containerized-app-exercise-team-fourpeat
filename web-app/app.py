@@ -29,7 +29,7 @@ def run():
     audio_file_path = os.path.join(path, "machine-learning-client", "temp_audio.wav")
     with open(audio_file_path, "wb") as audio_file:
         audio_file.write(audio.get_wav_data())
-        
+
     run_path = os.path.join(path, "machine-learning-client", "ml.py")
     subprocess.run(["python", run_path, audio_file_path], check=False)
     return redirect(url_for("animals_db"))
