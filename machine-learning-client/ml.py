@@ -1,7 +1,7 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
+import sys
 import speech_recognition as sr
 import animal_db
-import sys
 
 recognizer = sr.Recognizer()
 
@@ -64,6 +64,7 @@ def process_voice_command(text):
         save_to_database("machine learning client", "Goodbye!")
     else:
         save_to_database("machine learning client", "I can't understand.")
+    return
 
 
 def main(audio_file_path):
@@ -73,7 +74,7 @@ def main(audio_file_path):
         audio_data = recognizer.record(source)
 
     text = convert_voice_to_text(audio_data)
-    end_program = process_voice_command(text)
+    process_voice_command(text)
 
 
 if __name__ == "__main__":
