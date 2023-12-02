@@ -5,6 +5,7 @@ import animal_db
 
 recognizer = sr.Recognizer()
 
+
 def convert_voice_to_text(audio):
     """Converts audio to string"""
     try:

@@ -7,7 +7,6 @@ import speech_recognition as sr
 from pymongo import DESCENDING
 
 
-
 app = Flask(__name__)
 recognizer = sr.Recognizer()
 
@@ -48,6 +47,7 @@ def capture_voice_input(timeout=3):
             print("Timeout occurred. No audio input received.")
             return redirect(url_for("animals_db"))
     return audio
+
 
 if __name__ == "__main__":
     app.run(port=8000)
