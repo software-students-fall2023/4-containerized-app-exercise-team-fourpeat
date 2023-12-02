@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< Updated upstream
-            "sha256": "30bb6f4e5b8821ff1d6319f9628d9c772060f4f55304da86ad813e9de6dc8495"
-=======
             "sha256": "f7a853167be083f6f98fd70e5425f9f04d2f886b6e9100b7cfcaa5154a43d3fa"
->>>>>>> Stashed changes
         },
         "pipfile-spec": 6,
         "requires": {},
