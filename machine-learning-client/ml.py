@@ -49,7 +49,7 @@ def process_voice_command(text):
         return True
     else:
         save_to_database("machine learning client", "I can't understand.")
-    return false
+    return False
 
 
 def main(audio_file_path):
