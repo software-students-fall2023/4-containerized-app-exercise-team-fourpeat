@@ -7,7 +7,6 @@ import speech_recognition as sr
 from pymongo import DESCENDING
 
 
-
 app = Flask(__name__)
 recognizer = sr.Recognizer()
 
@@ -29,7 +28,7 @@ def run():
     audio_file_path = os.path.join(path, "machine-learning-client", "temp_audio.wav")
     with open(audio_file_path, "wb") as audio_file:
         audio_file.write(audio.get_wav_data())
-        
+
     run_path = os.path.join(path, "machine-learning-client", "ml.py")
     subprocess.run(["python", run_path, audio_file_path], check=False)
     return redirect(url_for("animals_db"))
@@ -48,6 +47,7 @@ def capture_voice_input(timeout=3):
             print("Timeout occurred. No audio input received.")
             return redirect(url_for("animals_db"))
     return audio
+
 
 if __name__ == "__main__":
     app.run(port=8000)

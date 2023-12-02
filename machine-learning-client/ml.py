@@ -1,24 +1,9 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
+import sys
 import speech_recognition as sr
 import animal_db
-import sys
 
 recognizer = sr.Recognizer()
-
-
-def capture_voice_input(timeout=3):
-    """Captures audio from microphone with a specified timeout"""
-    with sr.Microphone() as source:
-        print("Listening...")
-        recognizer.adjust_for_ambient_noise(source)
-        try:
-            audio = recognizer.listen(source, timeout=timeout)
-            if not audio:
-                print("No audio detected. Please speak louder or try again.")
-        except sr.WaitTimeoutError:
-            print("Timeout occurred. No audio input received.")
-            audio = None
-    return audio
 
 
 def convert_voice_to_text(audio):
@@ -62,8 +47,10 @@ def process_voice_command(text):
         save_to_database("pig", "oink")
     elif "goodbye" in text.lower():
         save_to_database("machine learning client", "Goodbye!")
+        return True
     else:
         save_to_database("machine learning client", "I can't understand.")
+    return False
 
 
 def main(audio_file_path):
@@ -74,6 +61,8 @@ def main(audio_file_path):
 
     text = convert_voice_to_text(audio_data)
     end_program = process_voice_command(text)
+    if end_program:
+        print("done")
 
 
 if __name__ == "__main__":
