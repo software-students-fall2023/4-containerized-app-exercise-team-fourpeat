@@ -1,5 +1,5 @@
 """Unit tests of functions in ml.py"""
-from unittest.mock import Mock, MagicMock, patch
+from unittest.mock import Mock, patch
 import speech_recognition as sr
 import pytest
 
