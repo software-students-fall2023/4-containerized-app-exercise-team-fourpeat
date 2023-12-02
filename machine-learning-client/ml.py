@@ -5,22 +5,6 @@ import animal_db
 
 recognizer = sr.Recognizer()
 
-
-def capture_voice_input(timeout=3):
-    """Captures audio from microphone with a specified timeout"""
-    with sr.Microphone() as source:
-        print("Listening...")
-        recognizer.adjust_for_ambient_noise(source)
-        try:
-            audio = recognizer.listen(source, timeout=timeout)
-            if not audio:
-                print("No audio detected. Please speak louder or try again.")
-        except sr.WaitTimeoutError:
-            print("Timeout occurred. No audio input received.")
-            audio = None
-    return audio
-
-
 def convert_voice_to_text(audio):
     """Converts audio to string"""
     try:
