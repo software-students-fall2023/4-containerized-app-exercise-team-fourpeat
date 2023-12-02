@@ -13,6 +13,11 @@ coverage = "*"
 pytest = "*"
 flask = "*"
 flask-pymongo = "*"
+<<<<<<< Updated upstream
+=======
+colorama = "*"
+pytest-flask = "*"
+>>>>>>> Stashed changes
 
 [dev-packages]
 
