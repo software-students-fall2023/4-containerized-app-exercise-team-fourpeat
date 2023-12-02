@@ -46,8 +46,10 @@ def process_voice_command(text):
         save_to_database("pig", "oink")
     elif "goodbye" in text.lower():
         save_to_database("machine learning client", "Goodbye!")
+        return True
     else:
         save_to_database("machine learning client", "I can't understand.")
+    return false
 
 
 def main(audio_file_path):
@@ -57,7 +59,9 @@ def main(audio_file_path):
         audio_data = recognizer.record(source)
 
     text = convert_voice_to_text(audio_data)
-    process_voice_command(text)
+    end_program = process_voice_command(text)
+    if end_program:
+        print("done")
 
 
 if __name__ == "__main__":
