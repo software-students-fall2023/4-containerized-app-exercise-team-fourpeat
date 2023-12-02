@@ -13,7 +13,9 @@ coverage = "*"
 pytest = "*"
 flask = "*"
 flask-pymongo = "*"
+colorama = "*"
 
 [dev-packages]
+speechrecognition = "*"
 
 [requires]

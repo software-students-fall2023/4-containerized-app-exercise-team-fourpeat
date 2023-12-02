@@ -1,11 +1,12 @@
 """ Listens to audio from microphone for an animal and prints out the animal's sound in response"""
 import speech_recognition as sr
 import animal_db
+import sys
 
 recognizer = sr.Recognizer()
 
 
-def capture_voice_input(timeout=5):
+def capture_voice_input(timeout=3):
     """Captures audio from microphone with a specified timeout"""
     with sr.Microphone() as source:
         print("Listening...")
@@ -61,20 +62,19 @@ def process_voice_command(text):
         save_to_database("pig", "oink")
     elif "goodbye" in text.lower():
         save_to_database("machine learning client", "Goodbye!")
-        return True
     else:
         save_to_database("machine learning client", "I can't understand.")
-    return False
 
 
-def main():
+def main(audio_file_path):
     """main script function"""
-    end_program = False
-    while not end_program:
-        audio = capture_voice_input()
-        text = convert_voice_to_text(audio)
-        end_program = process_voice_command(text)
+    audio = sr.AudioFile(audio_file_path)
+    with audio as source:
+        audio_data = recognizer.record(source)
+
+    text = convert_voice_to_text(audio_data)
+    end_program = process_voice_command(text)
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1])
