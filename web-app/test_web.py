@@ -1,5 +1,6 @@
 """Unit tests of functions in app.py"""
 import speech_recognition as sr
+from unittest.mock import MagicMock, patch
 
 from app import (
   capture_voice_input,
