@@ -48,7 +48,6 @@ def process_voice_command(text):
         save_to_database("machine learning client", "Goodbye!")
     else:
         save_to_database("machine learning client", "I can't understand.")
-    return
 
 
 def main(audio_file_path):
