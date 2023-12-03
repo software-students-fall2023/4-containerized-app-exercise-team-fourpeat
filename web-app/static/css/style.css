@@ -4,6 +4,7 @@ body {
   color: #333;
   line-height: 1.6;
   align-items: center;
+  text-align: center;
 }
 
 h1 {
@@ -12,6 +13,7 @@ h1 {
 }
 
 ul {
+  text-align: center;
   list-style: none;
   padding: 0;
 }
