@@ -90,6 +90,12 @@ def test_process_voice_command_snake():
     assert result is False
 
 
+def test_process_voice_command_pig():
+    """Test with recognized command of pig"""
+    result = process_voice_command("pig")
+    assert result is False
+
+
 def test_process_voice_command_goodbye():
     """Test with recognized command of goodbye"""
     result = process_voice_command("goodbye")
