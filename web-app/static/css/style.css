@@ -4,6 +4,7 @@ body {
   color: #333;
   line-height: 1.6;
   align-items: center;
+  text-align: center;
 }
 
 h1 {
@@ -42,17 +43,4 @@ button {
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.3s, transform 0.3s;
-}
-
-.centered-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Adjust this as needed */
-}
-
-/* Optional styling for the image */
-.centered-image img {
-  max-width: 100%; /* Ensures the image doesn't exceed its container */
-  height: auto; /* Maintains aspect ratio */
 }
