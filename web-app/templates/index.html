@@ -13,7 +13,35 @@
     Say "Goodbye" to exit the program.
     <ul>
         {% for animal in animals %}
-        <li>{{ animal.animal }} says "{{ animal.sound }}"</li>
+
+            {% if animal.animal == 'human' %}
+                <img src="/static/images/human.jpeg" alt="Human Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'cat' %}
+                <img src="/static/images/cat.jpeg" alt="Cat Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'dog' %}
+                <img src="/static/images/dog.jpeg" alt="Dog Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'cow' %}
+                <img src="/static/images/cow.jpeg" alt="Cow Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'bird' %}
+                <img src="/static/images/bird.jpeg" alt="Bird Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'frog' %}
+                <img src="/static/images/frog.jpeg" alt="Frog Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'snake' %}
+                <img src="/static/images/snake.jpeg" alt="Snake Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'pig' %}
+                <img src="/static/images/pig.jpeg" alt="Pig Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'machine learning client' %}
+            <img src="/static/images/frown.jpeg" alt="Frown Image" width="100" height="100">
+        {% endif %}
+            <li>{{ animal.animal }} says "{{ animal.sound }}"</li>
         {% endfor %}
     </ul>
 </body>

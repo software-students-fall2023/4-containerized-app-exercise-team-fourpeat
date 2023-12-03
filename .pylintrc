@@ -1,0 +1,3 @@
+[MESSAGES CONTROL]
+disable=
+    W0621,  # redefined-outer-name (common in pytest)
