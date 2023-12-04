@@ -1,23 +1,26 @@
 version: '3.8'
-
 services:
-  webapp:
+  web:
     build:
       context: .
       dockerfile: ./web-app/Dockerfile
     ports:
       - "8000:8000"
+    depends_on:
+      - db
     environment:
-      - MONGO_URI=mongodb+srv://exz209:06bW5AA1Z2X9YeON@cluster0.apy9mup.mongodb.net/?retryWrites=true&w=majority
+      - DATABASE_HOST=db
 
-  mlclient:
+  ml:
     build:
       context: .
       dockerfile: ./machine-learning-client/Dockerfile
-    # devices:
-    #   - "/dev/snd:/dev/snd"
-    # ports:
-    #   - "5001:5000"
+    depends_on:
+      - db
     environment:
-      - MONGO_URI=mongodb+srv://exz209:06bW5AA1Z2X9YeON@cluster0.apy9mup.mongodb.net/?retryWrites=true&w=majority
-      - PULSE_SERVER=tcp:host.docker.internal:4713
+      - DATABASE_HOST=db
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
