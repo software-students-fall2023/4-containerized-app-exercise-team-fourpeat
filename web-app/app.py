@@ -1,7 +1,7 @@
 """Web app"""
 import subprocess
 import os
-from flask import Flask, render_template, redirect, url_for, jsonify, request
+from flask import Flask, render_template, jsonify, request
 import db
 import speech_recognition as sr
 from pymongo import DESCENDING
