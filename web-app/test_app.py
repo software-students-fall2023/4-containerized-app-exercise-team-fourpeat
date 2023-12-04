@@ -2,7 +2,6 @@
 import subprocess
 import pytest
 from app import app
-from flask import template_rendered
 
 
 @pytest.fixture
