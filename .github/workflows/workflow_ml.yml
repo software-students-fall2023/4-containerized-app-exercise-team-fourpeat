@@ -34,5 +34,4 @@ jobs:
           pipenv sync
       - name: Test with pytest (machine-learning-client)
         run: |
-          cd machine-learning-client
           pipenv run coverage run -m pytest
