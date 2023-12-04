@@ -33,7 +33,7 @@ jobs:
           pipenv install --dev
           pipenv install tomli
           pipenv sync
-      - name: Test with pytest (machine-learning-client)
+      - name: Test with pytest (web-app)
         run: |
           pipenv run pytest -v test_app.py
         working-directory: web-app
