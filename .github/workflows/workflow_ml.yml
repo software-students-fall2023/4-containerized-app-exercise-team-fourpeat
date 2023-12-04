@@ -33,5 +33,4 @@ jobs:
           pipenv install tomli
           pipenv sync
       - name: Test with pytest (machine-learning-client)
-        run: |
-          pipenv run coverage run -m pytest
+        run: pipenv run pytest
