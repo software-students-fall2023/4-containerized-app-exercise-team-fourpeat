@@ -1,5 +1,3 @@
-![Python package build test](https://github.com/software-students-fall2023/4-containerized-app-exercise-team-fourpeat/actions/workflows/workflow_ml.yaml/badge.svg)
-
 [![Machine-Learning-Client](https://github.com/software-students-fall2023/4-containerized-app-exercise-team-fourpeat/actions/workflows/workflow_ml.yml/badge.svg)](https://github.com/software-students-fall2023/4-containerized-app-exercise-team-fourpeat/actions/workflows/workflow_ml.yml)
 
 # Animals!!

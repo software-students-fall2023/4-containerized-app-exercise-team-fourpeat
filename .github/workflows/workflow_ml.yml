@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: CI for Machine Learning
 
 run-name: ${{ github.actor }} is automating using Github Actions
 
