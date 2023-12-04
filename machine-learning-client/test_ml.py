@@ -46,8 +46,5 @@ def test_convert_voice_to_text_request_error():
         assert result == ""
 
 
-
-
-
 if __name__ == "__main__":
     pytest.main()
