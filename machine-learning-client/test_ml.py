@@ -3,10 +3,8 @@ from unittest.mock import Mock, patch
 import speech_recognition as sr
 import pytest
 
-from ml import (
-    convert_voice_to_text,
-    process_voice_command,
-)
+from ml import convert_voice_to_text
+
 
 recognizer = sr.Recognizer()
 
