@@ -24,7 +24,6 @@ def save_to_database(animal, sound):
     """Saves animal sound into the MongoDB database"""
     data = {"animal": animal, "sound": sound}
     animal_db.db["animal_sounds"].insert_one(data)
-    print(f"Saved sound '{sound}' for {animal} in the database.")
 
 
 def process_voice_command(text):
