@@ -5,6 +5,7 @@ import animal_db
 
 recognizer = sr.Recognizer()
 
+
 def capture_voice_input(timeout=3):
     """Captures audio from microphone with a specified timeout"""
     with sr.Microphone() as source:
@@ -18,6 +19,7 @@ def capture_voice_input(timeout=3):
             print("Timeout occurred. No audio input received.")
             return None
     return audio
+
 
 def convert_voice_to_text(audio):
     """Converts audio to string"""
@@ -68,10 +70,10 @@ def process_voice_command(text):
 
 def main(audio):
     """main script function"""
-    #audio = sr.AudioFile(audio_file_path)
-    #with audio as source:
+    # audio = sr.AudioFile(audio_file_path)
+    # with audio as source:
     #    audio_data = recognizer.record(source)
-    #text = convert_voice_to_text(audio_data)
+    # text = convert_voice_to_text(audio_data)
     end_program = process_voice_command(audio)
     if end_program:
         print("done")

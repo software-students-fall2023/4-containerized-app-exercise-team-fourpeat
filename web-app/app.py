@@ -25,11 +25,11 @@ path = os.path.join(os.path.dirname(os.path.dirname(__file__)))
 def run():
     """Executes ml.py script in machine-learning-client folder"""
     data = request.get_json()
-    animal = data.get('word', '')
+    animal = data.get("word", "")
 
     run_path = os.path.join(path, "machine-learning-client", "ml.py")
     subprocess.run(["python", run_path, animal], check=False)
-    return jsonify({'success': True})
+    return jsonify({"success": True})
 
 
 def capture_voice_input(timeout=3):
