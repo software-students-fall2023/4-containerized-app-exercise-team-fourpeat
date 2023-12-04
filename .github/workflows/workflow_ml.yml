@@ -32,7 +32,7 @@ jobs:
           pipenv install --dev
           pipenv install tomli
           pipenv sync
-      - name: Install package in editable mode
-        run: pipenv run pip install -e .
-      - name: Test with pytest
-        run: pipenv run pytest
+      - name: Test with pytest (machine-learning-client)
+        run: |
+          cd machine-learning-client
+          pipenv run coverage run -m pytest
