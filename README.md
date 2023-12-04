@@ -7,8 +7,14 @@ An interactive web app that allows you to say an animal and it will respond with
 ## Usage
 To run this program
 
-2. Install PortAudio either using a package manager that works for your os or take a look at the instructions on the GitHub page [here](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/main/scripts/readme-gen/templates/install_portaudio.tmpl.rst/) 
-3. Likewise, install flac either using a package manager that works for your os or from the website [here](https://xiph.org/flac/download.html)
+1. Install [mongodb](https://www.mongodb.com/docs/manual/installation/) (```brew install mongodb```)
+2. Install [Docker](https://docs.docker.com/engine/install/)
+3. Open Docker to run docker daemon
+4. ```cd ./path_to_app```
+5. ```docker-compose up --build```
+
+<!-- 2. Install PortAudio either using a package manager that works for your os or take a look at the instructions on the GitHub page [here](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/main/scripts/readme-gen/templates/install_portaudio.tmpl.rst/) 
+3. Likewise, install flac either using a package manager that works for your os or from the website [here](https://xiph.org/flac/download.html) -->
 
 
 
