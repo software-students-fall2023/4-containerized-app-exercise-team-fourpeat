@@ -1,5 +1,7 @@
 ![Python package build test](https://github.com/software-students-fall2023/4-containerized-app-exercise-team-fourpeat/actions/workflows/workflow_ml.yaml/badge.svg)
 
+[![Machine-Learning-Client](https://github.com/software-students-fall2023/4-containerized-app-exercise-team-fourpeat/actions/workflows/workflow_ml.yml/badge.svg)](https://github.com/software-students-fall2023/4-containerized-app-exercise-team-fourpeat/actions/workflows/workflow_ml.yml)
+
 # Animals!!
 
 An interactive web app that allows you to say an animal and it will respond with the text represenation of the sound the animal makes as well as a picture of the animal.
