@@ -12,16 +12,13 @@ def client():
 
 
 def test_capture_audio_endpoint(client, monkeypatch):
-    """Define the data payload to simulate POST request"""
+    """Test the capture_audio endpoint"""
+
+    # Define the data payload to simulate a POST request
     data = {"word": "dog"}  # Replace with desired data for testing
 
     # Patch subprocess.run to prevent actual script execution during the test
-    # pylint: disable=W0127
-    # pylint: disable=R1711
-    def mock_subprocess_run(args, check):
-        args = args
-        check = check
-        return None
+    mock_subprocess_run = lambda *args, **kwargs: None
 
     monkeypatch.setattr(subprocess, "run", mock_subprocess_run)
 
@@ -30,4 +27,6 @@ def test_capture_audio_endpoint(client, monkeypatch):
 
     # Assertions
     assert response.status_code == 200  # Check if the response status code is 200 (OK)
-    assert response.json == {"success": True}  # Check if the response
+    assert response.json == {
+        "success": True
+    }  # Check if the response JSON matches the expected result
