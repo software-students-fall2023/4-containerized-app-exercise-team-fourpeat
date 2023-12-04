@@ -21,8 +21,8 @@ def animals_db():
 path = os.path.join(os.path.dirname(os.path.dirname(__file__)))
 
 
-@app.route("/run")
-def run():
+@app.route("/capture_audio", methods=['POST'])
+def capture_audio():
     """Executes ml.py script in machine-learning-client folder"""
     data = request.get_json()
     animal = data.get("word", "")
