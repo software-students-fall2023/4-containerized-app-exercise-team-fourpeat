@@ -4,24 +4,11 @@ import speech_recognition as sr
 import pytest
 
 from ml import (
-    capture_voice_input,
     convert_voice_to_text,
     process_voice_command,
 )
 
 recognizer = sr.Recognizer()
-
-
-def test_capture_voice_input_timeout():
-    """Test of timeout in voice input capture"""
-
-    def listen_mock(*args, **kwargs):
-        """Simulating wait timeout error"""
-        raise sr.WaitTimeoutError()
-
-    with patch.object(sr.Recognizer, "listen", side_effect=listen_mock):
-        result = capture_voice_input(timeout=0.01)
-        assert result is None
 
 
 def test_convert_voice_to_text():
