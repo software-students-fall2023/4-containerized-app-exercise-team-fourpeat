@@ -4,7 +4,6 @@ import pytest
 from app import app
 
 
-
 @pytest.fixture
 def client():
     """Client"""
@@ -27,8 +26,8 @@ def test_capture_audio_endpoint(client, monkeypatch):
     # pylint: disable=W0127
     # pylint: disable=R1711
     def mock_subprocess_run(args, check):
-        args=args
-        check=check
+        args = args
+        check = check
         return None
 
     monkeypatch.setattr(subprocess, "run", mock_subprocess_run)
