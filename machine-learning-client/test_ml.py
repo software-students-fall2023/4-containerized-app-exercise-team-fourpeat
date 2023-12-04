@@ -71,21 +71,6 @@ def test_process_voice_command(mock_save_to_db):
 
 
 @patch("ml.save_to_database")
-def test_process_voice_command_human(mock_save_to_db):
-    """Test for different strings"""
-    texts = "Hello, human!"
-
-    # Call the method for each text
-
-    process_voice_command(texts)
-
-    # Assertions
-    assert (
-        mock_save_to_db.call_count == 1
-    )  # Check if save_to_database is called same times as texts
-
-
-@patch("ml.save_to_database")
 def test_process_voice_command_cat(mock_save_to_db):
     """Test for different strings"""
     texts = "cat"
@@ -101,9 +86,54 @@ def test_process_voice_command_cat(mock_save_to_db):
 
 
 @patch("ml.save_to_database")
-def test_process_voice_command_dog(mock_save_to_db):
+def test_process_voice_command_bird(mock_save_to_db):
     """Test for different strings"""
-    texts = "dog"
+    texts = "bird"
+
+    # Call the method for each text
+
+    process_voice_command(texts)
+
+    # Assertions
+    assert (
+        mock_save_to_db.call_count == 1
+    )  # Check if save_to_database is called same times as texts
+
+
+@patch("ml.save_to_database")
+def test_process_voice_command_snake(mock_save_to_db):
+    """Test for different strings"""
+    texts = "snake"
+
+    # Call the method for each text
+
+    process_voice_command(texts)
+
+    # Assertions
+    assert (
+        mock_save_to_db.call_count == 1
+    )  # Check if save_to_database is called same times as texts
+
+
+@patch("ml.save_to_database")
+def test_process_voice_command_pig(mock_save_to_db):
+    """Test for different strings"""
+    texts = "pig"
+
+    # Call the method for each text
+
+    process_voice_command(texts)
+
+    # Assertions
+    assert (
+        mock_save_to_db.call_count == 1
+    )  # Check if save_to_database is called same times as texts
+
+
+@patch("ml.save_to_database")
+def test_process_voice_command_frog(mock_save_to_db):
+    """Test for different strings"""
+    texts = "frog"
 
     # Call the method for each text
 
