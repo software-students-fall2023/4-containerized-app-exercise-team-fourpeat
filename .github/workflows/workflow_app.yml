@@ -1,4 +1,4 @@
-name: CI for Web App
+name: CI/CD for Web App
 
 run-name: ${{ github.actor }} is automating using Github Actions
 
@@ -37,3 +37,12 @@ jobs:
         run: |
           pipenv run pytest -v test_app.py
         working-directory: web-app
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to Production
+        run: |
+          docker-compose build
+          docker-compose up -d
