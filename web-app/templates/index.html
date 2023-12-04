@@ -8,8 +8,7 @@
 <body>
     <h1>Animal Sounds</h1>
     <br>
-    <button onclick="window.location.href='/run'">Click Me!</button>
-    Click the button and say an animal. The sound and image of this animal will be printed on this page.<br>
+    <button id="captureButton">Click Me!</button> Click the button to run a program that allows you to say an animal and will add the sound the animal makes to this page.
     <ul>
         {% for animal in animals %}
 
@@ -44,4 +43,38 @@
         {% endfor %}
     </ul>
 </body>
+<script>
+    const captureButton = document.getElementById('captureButton');
+    const resultDiv = document.getElementById('result');
+    
+    captureButton.addEventListener('click', () => {
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US';
+    
+        recognition.onresult = (event) => {
+            const word = event.results[0][0].transcript.trim().toLowerCase();
+    
+            fetch('/capture_audio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ word: word }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    window.location.href = '/';
+                } else {
+                    console.error('Server returned an error.');
+                }
+            })
+    
+            .catch(error => console.error('Error:', error));
+        };
+    
+        recognition.start();
+    });
+</script>
 </html>

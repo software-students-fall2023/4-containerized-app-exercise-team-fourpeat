@@ -15,6 +15,12 @@ flask = "*"
 flask-pymongo = "*"
 colorama = "*"
 pytest-flask = "*"
+pydub = "*"
+soundfile = "*"
+numpy = "*"
+ffmpeg = "*"
+ffmpeg-python = "*"
+ffprobe = "*"
 
 [dev-packages]
 speechrecognition = "*"

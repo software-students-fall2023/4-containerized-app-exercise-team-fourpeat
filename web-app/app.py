@@ -1,7 +1,7 @@
 """Web app"""
 import subprocess
 import os
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, jsonify, request
 import db
 import speech_recognition as sr
 from pymongo import DESCENDING
@@ -24,14 +24,12 @@ path = os.path.join(os.path.dirname(os.path.dirname(__file__)))
 @app.route("/run")
 def run():
     """Executes ml.py script in machine-learning-client folder"""
-    audio = capture_voice_input()
-    audio_file_path = os.path.join(path, "machine-learning-client", "temp_audio.wav")
-    with open(audio_file_path, "wb") as audio_file:
-        audio_file.write(audio.get_wav_data())
+    data = request.get_json()
+    animal = data.get('word', '')
 
     run_path = os.path.join(path, "machine-learning-client", "ml.py")
-    subprocess.run(["python", run_path, audio_file_path], check=False)
-    return redirect(url_for("animals_db"))
+    subprocess.run(["python", run_path, animal], check=False)
+    return jsonify({'success': True})
 
 
 def capture_voice_input(timeout=3):
