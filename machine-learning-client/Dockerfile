@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libasound2-dev \
     portaudio19-dev \
     flac \
+    pulseaudio \
     # other dependencies if needed
     && rm -rf /var/lib/apt/lists/*
 
