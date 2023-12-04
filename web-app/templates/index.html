@@ -1,0 +1,80 @@
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Sounds</title>
+</head>
+<body>
+    <h1>Animal Sounds</h1>
+    <br>
+    <button id="captureButton">Click Me!</button> Click the button and say an animal. This animal's sound and image will be printed on this page.
+    <ul>
+        {% for animal in animals %}
+
+            {% if animal.animal == 'human' %}
+                <img src="/static/images/human.jpeg" alt="Human Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'cat' %}
+                <img src="/static/images/cat.jpeg" alt="Cat Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'dog' %}
+                <img src="/static/images/dog.jpeg" alt="Dog Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'cow' %}
+                <img src="/static/images/cow.jpeg" alt="Cow Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'bird' %}
+                <img src="/static/images/bird.jpeg" alt="Bird Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'frog' %}
+                <img src="/static/images/frog.jpeg" alt="Frog Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'snake' %}
+                <img src="/static/images/snake.jpeg" alt="Snake Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'pig' %}
+                <img src="/static/images/pig.jpeg" alt="Pig Image" width="100" height="100">
+            {% endif %}
+            {% if animal.animal == 'machine learning client' %}
+            <img src="/static/images/frown.jpeg" alt="Frown Image" width="100" height="100">
+        {% endif %}
+            <li>{{ animal.animal }} says "{{ animal.sound }}"</li>
+        {% endfor %}
+    </ul>
+</body>
+<script>
+    const captureButton = document.getElementById('captureButton');
+    const resultDiv = document.getElementById('result');
+    
+    captureButton.addEventListener('click', () => {
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US';
+    
+        recognition.onresult = (event) => {
+            const word = event.results[0][0].transcript.trim().toLowerCase();
+    
+            fetch('/capture_audio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ word: word }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    window.location.href = '/';
+                } else {
+                    console.error('Server returned an error.');
+                }
+            })
+    
+            .catch(error => console.error('Error:', error));
+        };
+    
+        recognition.start();
+    });
+</script>
+</html>

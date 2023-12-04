@@ -6,8 +6,23 @@ name = "pypi"
 [packages]
 pylint = "*"
 black = "*"
+pyaudio = "*"
+pymongo = "*"
+speechrecognition = "*"
+coverage = "*"
+pytest = "*"
+flask = "*"
+flask-pymongo = "*"
+colorama = "*"
+pytest-flask = "*"
+pydub = "*"
+soundfile = "*"
+numpy = "*"
+ffmpeg = "*"
+ffmpeg-python = "*"
+ffprobe = "*"
 
 [dev-packages]
+speechrecognition = "*"
 
 [requires]
-python_version = "3.10"

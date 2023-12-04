@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./web-app/Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+
+  ml:
+    build:
+      context: .
+      dockerfile: ./machine-learning-client/Dockerfile
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
