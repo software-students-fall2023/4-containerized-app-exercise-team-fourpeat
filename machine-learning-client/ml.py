@@ -6,6 +6,21 @@ import animal_db
 recognizer = sr.Recognizer()
 
 
+def capture_voice_input(timeout=3):
+    """Captures audio from microphone with a specified timeout"""
+    with sr.Microphone() as source:
+        print("Listening...")
+        recognizer.adjust_for_ambient_noise(source)
+        try:
+            audio = recognizer.listen(source, timeout=timeout)
+            if not audio:
+                print("No audio detected. Please speak louder or try again.")
+        except sr.WaitTimeoutError:
+            print("Timeout occurred. No audio input received.")
+            return None
+    return audio
+
+
 def convert_voice_to_text(audio):
     """Converts audio to string"""
     try:
@@ -23,7 +38,7 @@ def convert_voice_to_text(audio):
 def save_to_database(animal, sound):
     """Saves animal sound into the MongoDB database"""
     data = {"animal": animal, "sound": sound}
-    animal_db.db.collection.insert_one(data)
+    animal_db.db["animal_sounds"].insert_one(data)
     print(f"Saved sound '{sound}' for {animal} in the database.")
 
 
@@ -53,14 +68,13 @@ def process_voice_command(text):
     return False
 
 
-def main(audio_file_path):
+def main(audio):
     """main script function"""
-    audio = sr.AudioFile(audio_file_path)
-    with audio as source:
-        audio_data = recognizer.record(source)
-
-    text = convert_voice_to_text(audio_data)
-    end_program = process_voice_command(text)
+    # audio = sr.AudioFile(audio_file_path)
+    # with audio as source:
+    #    audio_data = recognizer.record(source)
+    # text = convert_voice_to_text(audio_data)
+    end_program = process_voice_command(audio)
     if end_program:
         print("done")
 
