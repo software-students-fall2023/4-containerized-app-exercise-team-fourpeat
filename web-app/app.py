@@ -32,20 +32,5 @@ def run():
     return jsonify({'success': True})
 
 
-def capture_voice_input(timeout=3):
-    """Captures audio from microphone with a specified timeout"""
-    with sr.Microphone() as source:
-        print("Listening...")
-        recognizer.adjust_for_ambient_noise(source)
-        try:
-            audio = recognizer.listen(source, timeout=timeout)
-            if not audio:
-                print("No audio detected. Please speak louder or try again.")
-        except sr.WaitTimeoutError:
-            print("Timeout occurred. No audio input received.")
-            return redirect(url_for("animals_db"))
-    return audio
-
-
 if __name__ == "__main__":
     app.run(port=8000)
