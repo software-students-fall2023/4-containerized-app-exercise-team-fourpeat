@@ -1,6 +1,6 @@
 # Animals!!
 
-An interactive web app that allows you to say an animal and it will respond with the sound the animal makes as well as a picture of the animal.
+An interactive web app that allows you to say an animal and it will respond with the text represenation of the sound the animal makes as well as a picture of the animal.
 
 ## Usage
 To run this program

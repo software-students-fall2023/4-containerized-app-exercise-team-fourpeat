@@ -1,7 +1,7 @@
 """Web app"""
 import subprocess
 import os
-from flask import Flask, render_template, redirect, url_for, jsonify, request
+from flask import Flask, render_template, jsonify, request
 import db
 import speech_recognition as sr
 from pymongo import DESCENDING
@@ -30,21 +30,6 @@ def run():
     run_path = os.path.join(path, "machine-learning-client", "ml.py")
     subprocess.run(["python", run_path, animal], check=False)
     return jsonify({"success": True})
-
-
-def capture_voice_input(timeout=3):
-    """Captures audio from microphone with a specified timeout"""
-    with sr.Microphone() as source:
-        print("Listening...")
-        recognizer.adjust_for_ambient_noise(source)
-        try:
-            audio = recognizer.listen(source, timeout=timeout)
-            if not audio:
-                print("No audio detected. Please speak louder or try again.")
-        except sr.WaitTimeoutError:
-            print("Timeout occurred. No audio input received.")
-            return redirect(url_for("animals_db"))
-    return audio
 
 
 if __name__ == "__main__":
