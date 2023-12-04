@@ -18,7 +18,8 @@ def test_capture_audio_endpoint(client, monkeypatch):
     data = {"word": "dog"}  # Replace with desired data for testing
 
     # Patch subprocess.run to prevent actual script execution during the test
-    mock_subprocess_run = lambda *args, **kwargs: None
+    def mock_subprocess_run(*args, **kwargs):
+        return None
 
     monkeypatch.setattr(subprocess, "run", mock_subprocess_run)
 
