@@ -1,6 +1,6 @@
 """Database for this application"""
-from pymongo import MongoClient
 import os
+from pymongo import MongoClient
 
 DATABASE_HOST = os.getenv('DATABASE_HOST', 'localhost')
 CONNECTION_STRING = f"mongodb://{DATABASE_HOST}:27017/"
