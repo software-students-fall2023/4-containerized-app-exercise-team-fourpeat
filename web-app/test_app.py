@@ -1,7 +1,8 @@
 """Unit tests for the Flask web application."""
+import subprocess
 import pytest
 from app import app
-import subprocess
+
 
 
 @pytest.fixture
@@ -23,6 +24,8 @@ def test_capture_audio_endpoint(client, monkeypatch):
     data = {"word": "dog"}  # Replace with desired data for testing
 
     # Patch subprocess.run to prevent actual script execution during the test
+    # pylint: disable=W0127
+    # pylint: disable=R1711
     def mock_subprocess_run(args, check):
         args=args
         check=check
