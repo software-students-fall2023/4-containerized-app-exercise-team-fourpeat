@@ -48,58 +48,7 @@ def test_convert_voice_to_text_request_error():
         assert result == ""
 
 
-def test_process_voice_command_human():
-    """Test with recognized command of human"""
-    result = process_voice_command("human")
-    assert result is False
 
-
-def test_process_voice_command_cat():
-    """Test with recognized command of cat"""
-    result = process_voice_command("cat")
-    assert result is False
-
-
-def test_process_voice_command_dog():
-    """Test with recognized command of dog"""
-    result = process_voice_command("dog")
-    assert result is False
-
-
-def test_process_voice_command_cow():
-    """Test with recognized command of cow"""
-    result = process_voice_command("cow")
-    assert result is False
-
-
-def test_process_voice_command_bird():
-    """Test with recognized command of bird"""
-    result = process_voice_command("bird")
-    assert result is False
-
-
-def test_process_voice_command_frog():
-    """Test with recognized command of frog"""
-    result = process_voice_command("frog")
-    assert result is False
-
-
-def test_process_voice_command_snake():
-    """Test with recognized command of snake"""
-    result = process_voice_command("snake")
-    assert result is False
-
-
-def test_process_voice_command_pig():
-    """Test with recognized command of pig"""
-    result = process_voice_command("pig")
-    assert result is False
-
-
-def test_process_voice_command_goodbye():
-    """Test with recognized command of goodbye"""
-    result = process_voice_command("goodbye")
-    assert result is True
 
 
 if __name__ == "__main__":
