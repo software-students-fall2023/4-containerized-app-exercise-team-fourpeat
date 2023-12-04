@@ -1,4 +1,4 @@
-name: CI for Machine Learning
+name: CI for Web App
 
 run-name: ${{ github.actor }} is automating using Github Actions
 
