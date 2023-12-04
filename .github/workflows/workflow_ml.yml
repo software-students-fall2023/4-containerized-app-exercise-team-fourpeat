@@ -35,5 +35,5 @@ jobs:
           pipenv sync
       - name: Test with pytest (machine-learning-client)
         run: |
-          pipenv run pytest test_ml.py
+          pipenv run pytest -v test_ml.py
         working-directory: machine-learning-client
