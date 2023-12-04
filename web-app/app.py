@@ -14,7 +14,7 @@ recognizer = sr.Recognizer()
 @app.route("/")
 def animals_db():
     """Return the main page"""
-    animals = db.db.collection.find().sort("_id", DESCENDING)
+    animals = db.db["animal_sounds"].find().sort("_id", DESCENDING)
     return render_template("index.html", animals=animals)
 
 

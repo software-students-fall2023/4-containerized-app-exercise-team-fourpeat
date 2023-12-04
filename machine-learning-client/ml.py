@@ -23,7 +23,7 @@ def convert_voice_to_text(audio):
 def save_to_database(animal, sound):
     """Saves animal sound into the MongoDB database"""
     data = {"animal": animal, "sound": sound}
-    animal_db.db.collection.insert_one(data)
+    animal_db.db["animal_sounds"].insert_one(data)
     print(f"Saved sound '{sound}' for {animal} in the database.")
 
 

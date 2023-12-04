@@ -1,14 +1,8 @@
 """Database for this application"""
 from flask_pymongo import pymongo
+from pymongo import MongoClient
 
+CONNECTION_STRING = "mongodb://localhost:27017/"
 
-CONNECTION_STRING = (
-    "mongodb+srv://exz209:"
-    "06bW5AA1Z2X9YeON@"
-    "cluster0.apy9mup.mongodb.net/"
-    "?retryWrites=true&w=majority"
-)
-
-client = pymongo.MongoClient(CONNECTION_STRING)
-db = client.get_database("animals_db")
-user_collection = pymongo.collection.Collection(db, "user_collection")
+client = MongoClient(CONNECTION_STRING)
+db = client["database1"]
